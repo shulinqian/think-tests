@@ -1,0 +1,68 @@
+{extend name="base" /}
+
+{block name="style"}
+<style>
+    .result-success{
+        background: #5FB878;
+        color: #fff;
+    }
+    .result-error{
+        background: #FF5722;
+        color: #fff;
+    }
+
+</style>
+{/block}
+
+{block name="content"}
+<div class="layui-main">
+    <header>
+        <ul class="layui-nav" lay-filter="">
+            <li class="layui-nav-item"><a href="">模型测试结果</a></li>
+        </ul>
+    </header>
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="120">
+            <col>
+            <col>
+            <col width="140">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>结果</th>
+            <th>测试项目</th>
+            <th>消息</th>
+            <th>耗时</th>
+            <th>数据</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach $result.data as $item}
+        <tr>
+            <td class="result-{$item.type}">{$item.type}</td>
+            <td>{$item.comment}</td>
+            <td>{$item.msg}</td>
+            <td>{$item.time}</td>
+            <td>
+                {if $item.data}
+                <pre class="layui-code">{php}print_r($item['data']){/php}</pre>
+                {/if}
+            </td>
+        </tr>
+        {/foreach}
+        </tbody>
+    </table>
+
+</div>
+{/block}
+
+{block name="js"}
+<script>
+    layui.use(['element', 'code'], function () {
+        var element = layui.element();
+        layui.code();
+    });
+</script>
+{/block}

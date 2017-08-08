@@ -1,0 +1,46 @@
+{extend name="base" /}
+
+{block name="content"}
+<div class="layui-main">
+    <header>
+        <ul class="layui-nav" lay-filter="">
+            <li class="layui-nav-item"><a href="">模型测试</a></li>
+        </ul>
+    </header>
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="300">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>文件</th>
+            <th>名称</th>
+            <th>测试方法</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach $models as $item}
+        <tr>
+            <td>{$item.base.name}</td>
+            <td>{$item.base.comment}</td>
+            <td>
+                <ul>
+                    {foreach $item.methods as $v}
+                    {if $v.modifier == 'public' && ($v.name != 'run')}
+                    <li>{$v.comment}: {$v.name}</li>
+                    {/if}
+                    {/foreach}
+                </ul>
+            </td>
+            <td>
+                <a target="_blank" href="?case={$item.class}">测试</a>
+            </td>
+        </tr>
+        {/foreach}
+        </tbody>
+    </table>
+</div>
+{/block}
