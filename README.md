@@ -1,5 +1,5 @@
 # think-tests
-QQ群：647344518   [![](//pub.idqqimg.com/wpa/images/group.png)]((//shang.qq.com/wpa/qunwpa?idkey=83a58116f995c9f83af6dc2b4ea372e38397349c8f1973d8c9827e4ae4d9f50e))
+QQ群：647344518   [立即加群]((//shang.qq.com/wpa/qunwpa?idkey=83a58116f995c9f83af6dc2b4ea372e38397349c8f1973d8c9827e4ae4d9f50e))
 ### 1. 简介    
 在实际开发中，在开发阶段，其实并不是完全测试，更多的是调试，如果用phpunit进行测试驱动，其实有很多不方便，当然在项目开发完后，也建议大家写测试用例，保证代码的可用性和检查代码的覆盖率，避免垃圾代码   
 为了简化开发中调试和测试，开发了此模块，在前后端开发分离的时候节省开发时间和步骤。
