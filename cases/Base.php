@@ -38,11 +38,11 @@ abstract class Base{
     protected $state = [];
 
     /**
-     * @return array
+     * @return mixed
      */
-    protected function getState($mark)
+    protected function getState($mark, $def = null)
     {
-        return $this->state[$mark];
+        return isset($this->state[$mark]) ? $this->state[$mark] : $def;
     }
 
     /**
