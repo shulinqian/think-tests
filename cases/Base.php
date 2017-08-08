@@ -40,18 +40,20 @@ abstract class Base{
     /**
      * @return array
      */
-    protected function getState()
+    protected function getState($mark)
     {
-        return $this->state;
+        return $this->state[$mark];
     }
 
     /**
-     * @param array $state
+     * @param mixed $state
      */
-    protected function setState($state)
+    protected function setState($state, $mark = null)
     {
-        $called = $this->get_called_method();
-        $this->state[$called] = $state;
+        if(!$mark){
+            $mark = $this->get_called_method();
+        }
+        $this->state[$mark] = $state;
     }
 
     /**
@@ -115,9 +117,17 @@ abstract class Base{
      * @param $list
      */
     protected function doRun($list){
-        $mask = input('get.mask', 0, 'intval');
+        $mask = input('get.mask');
+        $maskString = '';
+        if(is_string($mask)){
+            $maskString = $mask;
+        }
         foreach ($list as $key => $item) {
-            if($mask && (($mask & $key) != $key)){
+            if($maskString){
+                if($mask != $item){
+                    continue;
+                }
+            } else if($mask && (($mask & $key) != $key)){
                 continue;
             }
             Debug::remark('test_begin');
