@@ -3,6 +3,8 @@
 在实际开发中，在开发阶段，其实并不是完全测试，更多的是调试，如果用phpunit进行测试驱动，其实有很多不方便，当然在项目开发完后，也建议大家写测试用例，保证代码的可用性和检查代码的覆盖率，避免垃圾代码   
 为了简化开发中调试和测试，开发了此模块，在前后端开发分离的时候节省开发时间和步骤。
 
+![](https://raw.githubusercontent.com/shulinqian/think-tests/master/common/static/1.jpg)
+![](https://raw.githubusercontent.com/shulinqian/think-tests/master/common/static/2.jpg)
 #### 应用场景：
 在开发了模型或逻辑代码的时候，可以进行一些测试   
 第三方api或sdk测试   
