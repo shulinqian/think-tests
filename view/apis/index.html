@@ -68,7 +68,9 @@
             <?php } ?>
         </td>
         <td>
-            <a href="javascript:alert('安全起见，暂时不允许删除，请联系数据库管理员')">删除</a> <a href="javascript:void(0)" class="api-save" data-id="{$item['id']}">修改</a>
+            <a href="javascript:alert('安全起见，暂时不允许删除，请联系数据库管理员')">删除</a>
+            <a href="javascript:void(0)" class="api-save" data-id="{$item['id']}">修改</a>
+            <a href="{:url('mock', ['name' => $item->name])}" target="_blank">访问</a>
         </td>
     </tr>
     {/foreach}

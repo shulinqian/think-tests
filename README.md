@@ -1,5 +1,6 @@
 # think-tests
-QQ群：647344518   [立即加群](http://shang.qq.com/wpa/qunwpa?idkey=83a58116f995c9f83af6dc2b4ea372e38397349c8f1973d8c9827e4ae4d9f50e)   
+QQ群：647344518   [立即加群](http://shang.qq.com/wpa/qunwpa?idkey=83a58116f995c9f83af6dc2b4ea372e38397349c8f1973d8c9827e4ae4d9f50e)      
+出品： [成都新数科技有限公司 http;//www.xinshukeji.com](http;//www.xinshukeji.com)    
 体验地址： [http://www.must.pw/tests/](http://www.must.pw/tests/) 
 
 ### 1. 简介    
