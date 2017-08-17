@@ -79,3 +79,10 @@ CREATE TABLE `dev_apis` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='api开发表';
 ```
+
+#### 操作提示
+1. 增加api的时候选择字段，输入字段包含的字母，会自动提示，选择后会自动加入   
+2. 字段列表api名称点击一下会出现提示，示例点击会弹出示例   
+3. 字段列表双击可以直接更改
+
+# 立即开始愉快的旅程吧
