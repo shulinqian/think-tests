@@ -19,7 +19,7 @@ QQ群：647344518   [立即加群](http://shang.qq.com/wpa/qunwpa?idkey=83a58116
 ### 2. 安装
 进入项目 application目录
 ```
-git clone git clone https://github.com/shulinqian/think-tests.git tests
+git clone https://github.com/shulinqian/think-tests.git tests
 ```
 ### 3. 访问地址
 http://你的地址/tests/
