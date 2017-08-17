@@ -2,12 +2,6 @@
 
 {block name="content"}
 <div class="layui-main">
-    <header>
-        <ul class="layui-nav" lay-filter="">
-            <li class="layui-nav-item"><a href="">模型测试</a></li>
-        </ul>
-    </header>
-
     <table class="layui-table">
         <colgroup>
             <col width="300">
@@ -30,7 +24,7 @@
                 <ul>
                     {foreach $item.methods as $v}
                     {if $v.modifier == 'public' && ($v.name != 'run')}
-                    <li> <a target="_blank" href="?case={$item.class}&mask={$v.name}">{$v.comment}: {$v.name}</a> </li>
+                    <li>{$v.comment}: {$v.name}</li>
                     {/if}
                     {/foreach}
                 </ul>

@@ -1,0 +1,123 @@
+{extend name="base" /}
+
+{block name="content"}
+<style>
+    .result-success{
+        background: #5FB878;
+        color: #fff;
+    }
+    .result-error{
+        background: #FF5722;
+        color: #fff;
+    }
+    .api-data-json{
+        width: 240px;
+        height:16px;
+        overflow: hidden;
+    }
+    .lay-code-show{
+        margin: 5px;
+        padding: 5px;
+    }
+    .fields-label .label-success{margin-right: 5px; display: inline-block;}
+</style>
+
+
+<table class="layui-table">
+    <colgroup>
+        <col width="50">
+        <col width="150">
+        <col width="70">
+        <col width="140">
+        <col>
+        <col width="300">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>名称</th>
+        <th>method</th>
+        <th>参数</th>
+        <th>返回字段</th>
+        <th>示例 </th>
+        <th>操作 <button class="layui-btn api-save">增加api</button></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {foreach $apis as $key => $item}
+    <tr>
+        <td>{$item.id}</td>
+        <td>
+            <span class="api-desc-tip" data-title="{:str_replace('"', '', $item['title'])}" data-desc="{:str_replace('"', '', $item['desc'])}">{$item->name}</span>
+        </td>
+        <td>{$item['method']}</td>
+        <td>
+            {$item['args_se_br']}
+        </td>
+        <td class="fields-label">
+            {if $item['fields_show']}
+            {foreach $item['fields_show'] as $k => $v}
+            <span class="label label-success">  {$v.field} : {$v['config']['title']}</span>
+            {/foreach}
+            {/if}
+        </td>
+        <td>
+            <?php if($item['result_show']){ ?>
+            <div class="api-data-json">{:json_encode($item['result_show'])}</div>
+            <?php } ?>
+        </td>
+        <td>
+            <a href="javascript:alert('安全起见，暂时不允许删除，请联系数据库管理员')">删除</a> <a href="javascript:void(0)" class="api-save" data-id="{$item['id']}">修改</a>
+        </td>
+    </tr>
+    {/foreach}
+    </tbody>
+</table>
+
+<script>
+
+    $(function(){
+        var url = "{:url('apisSave')}";
+        $('.api-save').on('click', function(){
+            var id = $(this).data('id');
+            var editUrl = url;
+            if(id){
+                editUrl = url + '&id=' + id
+            }
+
+            layer.open({
+                type: 2,
+                title: 'api操作',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['750px', '70%'],
+                content: editUrl
+            });
+        })
+
+        //演示数据
+        $('.api-data-json').on('click', function(){
+            var data = $(this).html();
+            var result = JSON.stringify(JSON.parse(data), null, 4);
+            layer.open({
+                type: 1,
+                title: '结果演示',
+                area: ['380px', '50%'],
+                content: '<pre class="lay-code-show">' + result + '</pre>'
+            });
+        })
+
+        //tip
+        $(".api-desc-tip").on('click', function(){
+            var _this = $(this);
+            var tipHtml = _this.data('title') + '<br/>';
+            tipHtml += _this.data('desc');
+            layer.tips(tipHtml, _this, {
+                tips: [4, '#3595CC'],
+                tipsMore: true
+            });
+        })
+    })
+</script>
+{/block}
