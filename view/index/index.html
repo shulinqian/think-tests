@@ -24,7 +24,7 @@
                 <ul>
                     {foreach $item.methods as $v}
                     {if $v.modifier == 'public' && ($v.name != 'run')}
-                    <li>{$v.comment}: {$v.name}</li>
+                    <li> <a target="_blank" href="?case={$item.class}&mask={$v.name}">{$v.comment}: {$v.name}</a> </li>
                     {/if}
                     {/foreach}
                 </ul>
